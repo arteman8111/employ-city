@@ -1,0 +1,340 @@
+.order {
+  position: relative;
+  padding: 125px 0 150px 0;
+  background-image: url("../img/order-bg.png");
+}
+
+.order::after {
+  background-color: $color-bg-main;
+  position: absolute;
+  content: "";
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.order__title {
+  margin: 0;
+  color: $color-default-white;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+  text-align: center;
+
+  span {
+    color: #3E9CDC;
+  }
+}
+
+.order__description {
+  margin: 0;
+  margin-top: 30px;
+  text-align: center;
+  color: $color-description;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.order__item-description {
+  margin: 0;
+  color: $color-default-white;
+  text-align: center;
+  font-size: 16px;
+  line-height: normal;
+  max-width: 188px;
+  margin-top: 42px;
+}
+
+.order__form-load {
+  color: transparent;
+  min-width: 370px;
+  height: 100%;
+
+  @include vp-767 {
+    min-width: 300px;
+  }
+}
+
+.order__form-load::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.order__form-load::before {
+  content: 'Прикрепите файл';
+  color: #272733;
+  display: inline-block;
+  background: #fff;
+  border: 2px solid #3E9CDC;
+  border-radius: 3px;
+  padding: 18px 110px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  background-image: url("../img/svg/docfile.svg");
+  background-repeat: no-repeat;
+  background-position: 74px 50%;
+}
+
+.order__form-load:active {
+  outline: 0;
+}
+
+.order__form-load:hover::before {
+  background: $color-blue-main;
+  color: $color-default-white;
+}
+
+.order__form-load:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.order__list {
+  margin: 0;
+  margin-top: 80px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 51px;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.order__item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    background-image: url("../img/svg/circle.svg");
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    content: "";
+    z-index: 1;
+    top: -18%;
+    left: 23%;
+  }
+
+  &:not(:last-child)::after {
+    position: absolute;
+    width: 110px;
+    height: 6px;
+    content: "";
+    top: 25%;
+    left: 85%;
+    background-image: url("../img/svg/bg-list.svg");
+    background-repeat: no-repeat;
+
+    @include vp-1279 {
+      display: none;
+    }
+  }
+}
+
+.order__item svg {
+  width: 55px;
+  height: 55px;
+  z-index: 2;
+}
+
+.order__submit {
+  @extend .btn;
+  min-width: 370px;
+  padding: 15px 0;
+  margin: 0 auto;
+  margin-top: 10px;
+  justify-content: center;
+
+  @include vp-767 {
+    min-width: 300px;
+  }
+}
+
+.order__form {
+  margin: 0;
+  margin-top: 92px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.order__form-input {
+  border-radius: 3px;
+  border: 1px solid #FFF;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px 35px 12px 10px;
+  color: #272733;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  min-width: 370px;
+  height: 48px;
+
+  &::placeholder {
+    color: #272733;
+  }
+
+  @include vp-767 {
+    min-width: 300px;
+  }
+}
+
+
+.order__form-box label {
+  display: block;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.order__form-box span {
+  text-align: end;
+  padding-left: 400px;
+
+  @include vp-767 {
+    padding-left: 190px;
+    font-weight: 700;
+  }
+}
+
+.order__form-range {
+  min-width: 770px;
+  border-radius: 50px;
+
+  @include vp-1023 {
+    min-width: 450px;
+  }
+
+  @include vp-767 {
+    min-width: 300px;
+  }
+}
+
+.order__form-range {
+  -webkit-appearance: none; /* Скрывает слайдер, чтобы можно было создать свой */
+  width: 100%; /* Указание параметра ширины требуется для Firefox. */
+}
+
+.order__form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.order__form-rangefocus {
+  outline: none; /* Убирает голубую границу у элемента. Хотя, возможно, и стоит создавать некоторое оформления для состояния фокуса в целях обеспечения доступности. */
+}
+
+.order__form-range::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent; /* Скрывает слайдер, чтобы можно было добавить собственные стили. */
+  border-color: transparent;
+  color: transparent;
+}
+
+.order__form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 3px solid #286690;
+  height: 24px;
+  width: 24px;
+  border-radius: 50px;
+  background: #42A9ED;
+  cursor: pointer;
+  margin-top: -10px; /* Вам нужно указать значение для поля в Chrome, но в Firefox и IE это происходит автоматически */
+  margin-bottom: -10px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Добавляем классные эффекты для слайдера! */
+}
+
+/* Тоже самое для Firefox */
+.order__form-range::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 3px solid #286690;
+  height: 24px;
+  width: 24px;
+  border-radius: 50px;
+  background: #42A9ED;
+  cursor: pointer;
+}
+
+/* Тоже самое для IE */
+.order__form-range::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 3px solid #286690;
+  height: 24px;
+  width: 24px;
+  border-radius: 50px;
+  background: #42A9ED;
+  cursor: pointer;
+}
+
+.order__form-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background-color: rgba(255, 255, 255, 0.70);
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.order__form-rangefocus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+
+.order__form-range::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background-color: rgba(255, 255, 255, 0.70);
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.order__form-range::-ms-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+.order__form-range::-ms-fill-lower {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background-color: rgba(255, 255, 255, 0.70);
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+.order__form-rangefocus::-ms-fill-lower {
+  background: #3071a9;
+}
+.order__form-range::-ms-fill-upper {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background-color: rgba(255, 255, 255, 0.70);
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+.order__form-rangefocus::-ms-fill-upper {
+  background: #367ebd;
+}

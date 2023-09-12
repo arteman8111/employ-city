@@ -1,0 +1,159 @@
+.order__select {
+  min-width: 370px;
+
+  @include vp-767 {
+    min-width: 300px;
+  }
+}
+
+details[open] {
+	z-index: 1;
+}
+
+summary {
+	padding: 12px 15px 12px 10px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.85);
+  color: #000;
+	list-style: none;
+}
+
+summary::-webkit-details-marker {
+	display: none;
+}
+
+details[open] summary:before {
+	content: '';
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	background: transparent;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+summary:after {
+	content: '';
+	display: block;
+	float: right;
+	width: 6px;
+	height: 6px;
+  margin-top: 6px;
+	border-bottom: 2px solid currentColor;
+	border-left: 2px solid currentColor;
+  transform: rotate(-45deg);
+	transform-origin: center center;
+	transition: transform ease-in-out 100ms;
+  color: #000;
+}
+
+summary:focus {
+	outline: none;
+}
+
+details[open]{
+  summary {
+    background-color: rgba(61, 64, 80, 0.85);
+  }
+
+  input[type=radio]:after {
+    color: $color-default-white;
+  }
+
+  summary:after {
+    color: $color-default-white
+  }
+}
+
+details[open] summary:after {
+  margin-top: 8px;
+	transform: rotate(135deg);
+}
+
+.list {
+	width: 370px;
+	background: #272733;
+  border: 1px solid #3D4050;
+  color: $color-default-white;
+	position: absolute;
+	padding: 18px 10px;
+	margin: 0;
+	box-sizing: border-box;
+	border-radius: 5px;
+	max-height: 200px;
+	overflow-y: auto;
+  list-style: none;
+  font-size: 18px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgba(62, 156, 220, 1);
+  border-radius: 3px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: rgba(61, 64, 80, 1);
+}
+
+.list::-webkit-scrollbar {
+  width: 7px;
+}
+
+.list li {
+	margin: 0;
+	padding-top: 14px;
+}
+
+.list li:first-child {
+	padding-top: 0;
+}
+
+.list li:last-child {
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+/* FAKE SELECT */
+
+summary.radios {
+	counter-reset: radios;
+}
+
+.custom-select input[type=radio] {
+	counter-increment: radios;
+	appearance: none;
+	display: none;
+}
+
+.custom-select input[type=radio]:checked {
+	display: inline;
+	--display: block;
+}
+
+.custom-select input[type=radio]:after {
+  font-size: 18px;
+	content: attr(title);
+	display: inline;
+}
+
+ul.list {
+	counter-reset: labels;
+}
+
+.list label {
+	width: 100%;
+	display: flex;
+	cursor: pointer;
+	justify-content: space-between;
+}
+
+.list label span {
+	--display: none;
+	display: var(--display);
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid #727272;
+	border-radius: 3px;
+}

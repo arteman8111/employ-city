@@ -1,0 +1,84 @@
+.promo {
+  padding: 203px 0;
+  background-image: url("../img/bg.jpg");
+  background-color: $color-default-white;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+
+  @include retina {
+    background-image: url("../img/bg@2x.jpg");
+  }
+}
+
+.promo__title {
+  margin: 0;
+  color: $color-blue-main;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  max-width: 780px;
+
+  span {
+    color: $color-default-black;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+}
+
+.promo__subtitle {
+  margin: 0;
+  margin-top: 80px;
+  color: $color-default-black;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.promo__list {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.promo__item {
+  color: $color-default-black;
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  &::before {
+    content: "-";
+    color: $color-default-black;
+    margin: 0 11px;
+  }
+}
+
+.promo__item:not(:first-child ) {
+  margin-top: 5px;
+}
+
+.promo__box {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.promo__button {
+  @extend .btn
+}
+
+.promo__button-more {
+  background-color: $color-default-white;
+  border: 1px solid $color-border-button;
+  color: $color-default-black;
+}
